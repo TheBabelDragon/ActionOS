@@ -1,0 +1,17 @@
+[package]
+name = "actionos-host"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+description = "Host simulation of ActionOS platform interfaces and boot lifecycle"
+rust-version.workspace = true
+
+[dependencies]
+actionos-core = { workspace = true }
+actionos-platform = { workspace = true }
+
+[[bin]]
+name = "actionos-host"
+path = "src/main.rs"
