@@ -4,8 +4,8 @@
 //! reported with `host_simulated = true`.
 
 use actionos_core::{
-    BootController, BootPhase, DeviceId, ErrorCode, MemoryFlags, MemoryRegion, PlatformCapabilities,
-    PlatformError, ResourceId,
+    BootController, BootPhase, DeviceId, ErrorCode, MemoryFlags, MemoryRegion,
+    PlatformCapabilities, PlatformError, ResourceId,
 };
 use actionos_platform::{
     Clock, Console, DeviceProbe, InterruptController, MemoryMap, PlatformServices, Timer,
