@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.75.0
+        with:
+          targets: aarch64-unknown-none
+      - name: Build
+        run: cargo build --workspace
+      - name: Test
+        run: cargo test --workspace
+      - name: no_std check (contracts)
+        run: cargo check -p actionos-contracts --target aarch64-unknown-none --no-default-features --features alloc
+      - name: no_std check (core)
+        run: cargo check -p actionos-core --target aarch64-unknown-none --no-default-features --features alloc
