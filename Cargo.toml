@@ -1,0 +1,22 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/actionos-core",
+    "crates/actionos-platform",
+    "crates/actionos-host",
+]
+default-members = ["crates/actionos-host"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["TheBabelDragon"]
+repository = "https://github.com/TheBabelDragon/ActionOS"
+description = "ActionOS — bare-metal-first platform and system integration layer"
+rust-version = "1.75"
+
+[workspace.dependencies]
+actionos-core = { path = "crates/actionos-core" }
+actionos-platform = { path = "crates/actionos-platform" }
+actionos-host = { path = "crates/actionos-host" }

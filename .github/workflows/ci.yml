@@ -1,0 +1,25 @@
+name: ci
+
+on:
+  push:
+    branches: [main, "feat/**"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.75.0
+        with:
+          components: rustfmt, clippy
+          targets: aarch64-unknown-none
+      - name: fmt
+        run: cargo fmt --all -- --check
+      - name: test
+        run: cargo test --workspace
+      - name: no_std core
+        run: cargo check -p actionos-core --target aarch64-unknown-none
+      - name: no_std platform
+        run: cargo check -p actionos-platform --target aarch64-unknown-none
