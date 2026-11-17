@@ -1,0 +1,42 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/actionos-contracts",
+    "crates/actionos-core",
+    "crates/actionos-codec",
+    "crates/actionos-hal",
+    "crates/actionos-runtime",
+    "crates/actionos-adapters",
+    "crates/actionos-host",
+    "crates/actionos-cli",
+]
+default-members = ["crates/actionos-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+authors = ["TheBabelDragon"]
+repository = "https://github.com/TheBabelDragon/ActionOS"
+description = "ActionOS — Bare-metal-first action orchestration for the TheBabelDragon ecosystem"
+rust-version = "1.75"
+
+[workspace.dependencies]
+serde = { version = "=1.0.195", default-features = false, features = ["derive", "alloc"] }
+serde_json = { version = "=1.0.108", default-features = false, features = ["alloc"] }
+thiserror = "1.0.61"
+uuid = { version = "=1.11.0", default-features = false, features = ["serde"] }
+heapless = "0.8.0"
+hashbrown = { version = "0.14.5", default-features = false, features = ["serde"] }
+anyhow = "1.0.86"
+clap = { version = "=4.4.18", features = ["derive"] }
+chrono = { version = "0.4.38", default-features = false, features = ["serde", "clock", "std"] }
+tracing = "0.1.40"
+tracing-subscriber = "0.3.18"
+actionos-contracts = { path = "crates/actionos-contracts" }
+actionos-core = { path = "crates/actionos-core" }
+actionos-codec = { path = "crates/actionos-codec" }
+actionos-hal = { path = "crates/actionos-hal" }
+actionos-runtime = { path = "crates/actionos-runtime" }
+actionos-adapters = { path = "crates/actionos-adapters" }
+actionos-host = { path = "crates/actionos-host" }
