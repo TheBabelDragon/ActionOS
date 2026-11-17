@@ -1,8 +1,8 @@
 //! actionos-host — run simulated boot and print phase.
 
 use actionos_core::BootPhase;
-use actionos_platform::Clock;
 use actionos_host::HostPlatform;
+use actionos_platform::Clock;
 
 fn main() {
     let mut platform = HostPlatform::new();
